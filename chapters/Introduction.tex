@@ -1,49 +1,17 @@
 \chapter{Introduction}\label{sec:introduction}
-This template is meant to be used for semester, bachelor, and master theses written at the Institute for Dynamic Systems and Control (IDSC), ETH Zurich. The template includes several examples of equations, figures, tables, etc. in order to act as a {\it very} short introduction to \TeX\! and \LaTeX. Yet, the template is also provided to ensure that all written work at IDSC shares identical formatting.
+	
+		Building simulation are widely used for different purposes such as to benchmark buildings or to evaluate energy demands and indoor thermal comforts. However, due to a number of factors, there are deviations between calculated  and measurement values, which is called \textbf{performance gap}. Previous studies which used a standardized method \textbf{SIA 180/1} to calculate the heating demand of several buildings observed considerably large performance gaps in uninsulated buildings as shown in \ref{fig:SIA380PG} \cite{SIAPreviousreport}. It is believed that part of the problem come from a non-accurate calculation method or non-realistic assumptions to some building parameters and outdoor environment \cite{SIAPreviousreport}. \\
+	
+	
+		Therefore, the purpose of this thesis is to find out the main causes of the performance gap in uninsulated buildings, as well as the most influential factors in building simulation. In addition, this thesis also aims to investigate how the resulting energy demand variations affect the performance gap.\\
 
-\section{The Preamble}\label{sec:preamble}
-The preamble of the \LaTeX\! template defines the font size, page layout, language, report type, title, and author(s) of the report. The preamble of the current template is shown below. It should be more or less clear how you need to modify the preamble to fit your needs; if not, consult your supervisor.
-%\lstset{language=TeX,numbers=none}
-%\begin{lstlisting}[frame=lines]
-\begin{verbatim}
- \documentclass[10pt,twoside,a4paper,fleqn]{report}
+	
+		Two uninsulated buildings, one residential and one office buildings, are carefully modeled and analyzed using different approaches including static calculation (SIA 180/1) and dynamic simulation (EnergyPlus). The buildings is firstly calibrated to match the historical measurement, then building parameters are modified and the most influential factors can be discovered.\\
 
- \usepackage[german,st]{ethidsc}             % IDSC style
-                                             % {german}/english: language
-                                             % {st}/bt/mt: thesis type
-
- % Page header (don't change)
- \setlength{\parindent}{0em}                 % Disable parindent
- \rhead[\nouppercase{\rightmark}]{\thepage}  % Special headings
- \lhead[\thepage]{\nouppercase{\leftmark}}   % Special headings
- \cfoot{}                                    % Special headings
-
- % Title page (please fill in)
- \title{\LaTeX\ Thesis Template v.1.4}       % Report title
-
- \studentA{Hans Muster}
- \ethidA{97-906-739}
- \semesterA{5}
- \emailA{muster@student.ethz.ch}
-
- % \studentB{Second Student}
- % \ethidB{12-345-678}
- % \semesterB{9}
- % \emailB{second@student.ethz.ch}
-
- \supervision{First Supervisor\\ Prof. Dr. Second Supervisor}
- \date{March 2011}
-
- \identification{IDSC-XX-YY-ZZ}              % Project identifier
-
- \infopage
- \declaration
- \end{verbatim}
-%\end{lstlisting}
-
-The style \texttt{ethidsc.sty} enforces certain changes to the original \texttt{report} class, e.g., the title page. The style accepts two options. The first option lets you choose the language of your report, i.e., the language of the title page, headings, info-page, etc. Valid options are: \texttt{german} (default) and \texttt{english}. The second option defines the type of report which will be printed on the title and info page. Valid options are: \texttt{st} (default), \texttt{bt}, and \texttt{mt} for semester, bachelor and master thesis, respectively. For instance, if you will be writing a master thesis in English, use
-\begin{verbatim}
- \usepackage[english,mt]{ethidsc}
-\end{verbatim}
-The command \texttt{\textbackslash infopage} prints an information page at the end of the document which you must sign before handing in the report.
+			\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.65]{Figure/SIA380Issue.jpg}
+			\caption{SIA380/1 Calculation Performance Gap Indicator \cite{SIAPreviousreport}}
+			\label{fig:SIA380PG}
+			\end{figure}
 
