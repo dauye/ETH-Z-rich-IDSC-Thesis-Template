@@ -17,9 +17,10 @@
 \documentclass[10pt,twoside,a4paper,fleqn]{report}
 
 
-\usepackage[english,st]{ethidsc} % Special IDSC styles and commands      	
+\usepackage[english,mt]{ethidsc} % Special IDSC styles and commands      	
 								 % {german}/english: language of headings, etc.
 								 % {st}/bt/mt: {semester}/bachelor/master thesis
+
 							
 % Page header (don't change)____________________________________________________
 \setlength{\parindent}{0em}                 % Disable parindent
@@ -29,23 +30,20 @@
 
 
 % Title page (please fill in)___________________________________________________
-\title{\LaTeX\ Thesis Template v.1.4}
+\title{Performance Gap of Swiss Buildings}
+\studentA{Ying He}
+\ethidA{16-947-913}
 
-
-\studentA{Hans Muster}
-\ethidA{97-906-739}
-\semesterA{5}
-\emailA{muster@student.ethz.ch}
+\emailA{yihe@student.ethz.ch}
 
 %\studentB{Second Student}
 %\ethidB{12-345-678}
 %\semesterB{9}
 %\emailB{second@student.ethz.ch}
 
-\supervision{First Supervisor\\ Prof. Dr. Second Supervisor}
-\date{March 2011}
+\supervision{Dr. Kristina Orehounig\\ Dr. Georgio Maromatidis}
+\date{October 2018}
 
-\identification{IDSC-XX-YY-ZZ} 		% Project identifier
 
 \infopage
 \declaration
@@ -69,7 +67,15 @@
 
 \input{chapters/Introduction}
 \cleardoublepage
-\input{chapters/howto}
+\input{chapters/LiteratureReview}
+\cleardoublepage
+\input{chapters/Methodology}
+\cleardoublepage
+\input{chapters/Results}
+\cleardoublepage
+\input{chapters/Discussion}
+\cleardoublepage
+\input{chapters/Conclusion}
 \cleardoublepage
 % \input{}
 % \cleardoublepage
