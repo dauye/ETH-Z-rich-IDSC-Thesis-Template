@@ -1,13 +1,18 @@
 \chapter{Methodology}
-	In order to achieve the thesis aim to reduce the deviation between calculated and measured heating demands and find the short-comings in SIA 380/1 calculation method, the whole thesis research is divided into three stages. In the first stage, a 3D model with exact geometry and orientation for each building is built using \textit{DesignBuilder (version4.7)}, the building material and the thermal performance of the building envelopes are given by measurements in the previous research. In the second stage, the two buildings are subject to building energy analyses using both SIA 380/1 standard tool and EnergyPlus. The models are then verified and calibrated by comparing the measured historical indoor temperature with the calculated indoor temperature . In the final stage, a set of key building parameters are varied and stochastic building environment is subject to analyses using jE-Plus. Further analyses would find out the correlation between parameters as well as the influence about climate data.
+	In order to achieve the thesis aim to reduce the deviation between calculated and measured heating demands and find the short-comings in SIA 380/1 calculation method, the whole thesis research is divided into three stages. In the first stage, a 3D model with exact geometry and orientation for each building is built using \textit{DesignBuilder (version4.7)}, the building material and the thermal performance of the building envelopes are given by measurements in the previous research. In the second stage, the two buildings are subject to building energy analyses using both SIA 380/1 standard tool and EnergyPlus. The models are then verified and calibrated by comparing the measured historical indoor temperature with the calculated indoor temperature . In the final stage, a set of key building parameters are varied and stochastic building environment is subject to analyses using jE-Plus. Further analyses would find out the correlation between parameters as well as the influence about climate data. Figure \ref{fig:overview} below shows the key approaches to achieve the thesis aim.\\
 
-
+		\begin{figure}[ht]
+		\centering
+		\includegraphics[scale=0.5]{overview.JPG}
+		\caption{An overview of the methodology}
+		\label{fig:overview}
+		\end{figure}
 
 	\section{Office Building Introduction}
 		
-		\begin{figure}[h!]
+		\begin{figure}[ht]
 		\centering
-		\includegraphics[scale=0.5]{Sumatra_photo.jpg}
+		\includegraphics[scale=0.45]{Sumatra_photo.jpg}
 		\caption{Sumatrastrasse 10 Office Building}
 		\label{fig:Sumatra_photo}
 		\end{figure}
@@ -536,7 +541,7 @@
 	\section{Static Calculation}
 		To investigate the cause of huge deviation between previous static calculation and measurement heating demand, a new static calculation is conducted with more accurate geometry and weather information. As static calculation follows the standard method proposed by SIA 180/1. The SIA calculation is divided into several parts. Each part calculates a type of energy loss or energy gain. 
 
-		\subsection{Heat Losses}
+		\subsection{Losses}
 			SIA takes a number of losses into account, mainly \textit{transmission loss} and \textit{ventilation loss}. The \textit{transmission loss} includes heat loss through conduction, heat loss through convection, and heat loss through thermal bridge. The losses are calculated based on the building location's heating degree days, building material thermal properties, and the dimension of building elements. The formula for the losses are given below.\\
 
 			\textbf{Transmission Heat Loss}\\
@@ -588,7 +593,7 @@
 				$HDD$: heating degree days\\
 
 
-		\subsection{Heat Gains}
+		\subsection{Gains}
 			In SIA 380/1 calculation, heat gain can be obtained from solar radiations, internal gains by electronics, and internal gains by occupant activities.\\
 			
 			\textbf{Solar Gains}\\
@@ -638,15 +643,12 @@
 			The building model is firstly subject to static calculation with all standard values and assumptions. After the reference static calculation has been made, another calculation with 2015 weather information is conducted. Depend on the obtained result, further parameters are modified and try to match the calculation results with the measured annual results.
 
 		
-	\section{Dynamic Analysis}
+	\section{Dynamic Calculation}
 		The dynamic analysis include a time-step calculation considering the step change of building thermal information. Therefore, EnergyPlus is used to provide an hourly analysis of the two buildings. A detailed setup of parameters are given below.
 		
+		The occupancy schedule and activity level of all zones of the two buildings are from the SIA 2024 standard. The SIA 2024 standard provides a guideline assumptions for different building areas such as bedroom, bathroom, kitchen, office, and corridor.\\
 
-		
-		\subsection{Schedule and Occupancy Assumptions}
-			The occupancy schedule and activity level of all zones of the two buildings are from the SIA 2024 standard. The SIA 2024 standard provides a guideline assumptions for different building areas such as bedroom, bathroom, kitchen, office, and corridor.\\
-
-			The detailed information of is stored in separate .\textit{csv} files which contains 8760 entries of hourly data. Below is a list of information obtained from SIA 2024.
+		The detailed information of is stored in separate .\textit{csv} files which contains 8760 entries of hourly data. Below is a list of information obtained from SIA 2024.
 
 
 				\begin{itemize}
@@ -681,17 +683,20 @@
 
 
 	\section{Calibration}
-		In order to ensure the simulated buildings have similar thermal behaviors as the real buildings, a calibration to the building envelope is needed. The calibration process needs to be in a summer period where no heating and cooling is performed. The calibration process vary the building air tightness, internal loads, and user behaviors until the calculated indoor temperature behaves similar enough to the historical measurement. Lastly, the calibrated building is again subject to annual analysis and aim to match the calculated annual energy consumption with the actual measured value.
+		In order to ensure the simulated buildings have similar thermal behaviors as the real buildings, a calibration to the building envelope is needed. The calibration process needs to be in a summer period where no heating and cooling is performed. The calibration process vary the building air tightness, internal loads, and user behaviors until the calculated indoor temperature behaves similar enough to the historical measurement. Lastly, the calibrated building is again subject to annual analysis and aim to match the calculated annual energy consumption with the actual measured value.\\
+		
 		
 
-		\subsection{Building Envelope Calibration}
-			The air tightness is thought to be an important factor in building simulation. Therefore, the calibration process would vary the air tightness between 0.1 to 0.5 ach and try to match both the hourly indoor temperature as well as the annual heating demand.
+		\textbf{Building Envelope Calibration}\\
+			The air tightness is thought to be an important factor in building simulation. Therefore, the calibration process would vary the air tightness between 0.1 to 0.5 ach and try to match both the hourly indoor temperature as well as the annual heating demand.\\
 
-		\subsection{Internal Loads}
-			Internal load such as Lighting and appliance schedule can change the indoor temperature patten. Therefore, in the calibration process, lighting schedule and electricity schedule are modified to observe the indoor temperature of the focused un-heating period. The newly constructed schedules should be separated into weekday and weekend schedule.
 
-		\subsection{User behavior}
-			The user behavior is also thought to be an influential factor to indoor comfort. The calibration also investigate the control strategies for users to operate the window shading. A number of shading control is used and the strategy with most similar indoor temperature patten is used in the calibrated model. The newly constructed shading schedule should vary between summer and winter schedule.
+		\textbf{Internal Loads}\\
+			Internal load such as Lighting and appliance schedule can change the indoor temperature patten. Therefore, in the calibration process, lighting schedule and electricity schedule are modified to observe the indoor temperature of the focused un-heating period. The newly constructed schedules should be separated into weekday and weekend schedule.\\
+
+
+		\textbf{User behavior}\\
+			The user behavior is also thought to be an influential factor to indoor comfort. The calibration also investigate the control strategies for users to operate the window shading. A number of shading control is used and the strategy with most similar indoor temperature patten is used in the calibrated model. The newly constructed shading schedule should vary between summer and winter schedule.\\
 
 
 	\section{Parameters Variation}
