@@ -1,5 +1,7 @@
 \chapter{Methodology}
-	The whole thesis research is divided into three stages. In the first stage, a 3D model with exact geometry and orientation for each building is built using \textit{DesignBuilder (version4.7)}, the building material and the thermal performance of the building envelopes are given by measurements in the previous research. In the second stage, the two buildings are subject to building energy analyses using both SIA 380/1 standard tool and EnergyPlus. The models are then verified and calibrated by comparing the measured historical indoor temperature with the calculated indoor temperature . In the final stage, a set of key building parameters are varied and stochastic building environment is subject to analyses using jE-Plus. Further analyses would find out the correlation between parameters as well as the influence about climate data.
+	In order to achieve the thesis aim to reduce the deviation between calculated and measured heating demands and find the short-comings in SIA 380/1 calculation method, the whole thesis research is divided into three stages. In the first stage, a 3D model with exact geometry and orientation for each building is built using \textit{DesignBuilder (version4.7)}, the building material and the thermal performance of the building envelopes are given by measurements in the previous research. In the second stage, the two buildings are subject to building energy analyses using both SIA 380/1 standard tool and EnergyPlus. The models are then verified and calibrated by comparing the measured historical indoor temperature with the calculated indoor temperature . In the final stage, a set of key building parameters are varied and stochastic building environment is subject to analyses using jE-Plus. Further analyses would find out the correlation between parameters as well as the influence about climate data.
+
+
 
 	\section{Office Building Introduction}
 		
@@ -326,13 +328,29 @@
 			\label{fig:HonggDB}
 			\end{figure}
 
+
+	\section{Selection of Simulation Tools}
+		Crawley and Hand et.al provided a comprehensive review on currently in-use building energy simulation tools back in 2008, and it include a brief review of EnergyPlus 1.2.2 and its basis building simulation tools \cite{crawley2008contrasting}. As EnergyPlus is compatible with building modeling software \textit{DesignBuilder}, it is more convenient to use it in this thesis comparing to other simulation tools. Additionally, as EnergyPlus is based on the features and capabilities of BLAST and DOE-2, these two tools are also briefly reviewed \cite{crawley2008contrasting}. However, the reviewed EnergyPlus version is more than 10 years old, it is believed that most of the functions have been updated and improved since then. \\
+
+		\textbf{Building BLAST}\\
+			The BLAST system predicts building energy consumption, building energy system performance and building costs \cite{crawley2008contrasting}. It contains three major subprograms: Space Loads Prediction, Air System Simulation, and Central Plant. \textit{Space Loads Prediction} computes hourly space loads based on the given hourly weather data, building construction properties and operation details. It uses a radiant, convective, and conductive heat balance for all surfaces and a heat balance of indoor air \cite{crawley2008contrasting}. The energy balance equations include heat transmission, solar loads, internal heat gains, air infiltration loads, and temperature control strategy used to manipulate the indoor temperature. BLAST can be used on new or existing buildings of almost any type and shape \cite{crawley2008contrasting}.\\
+
+		\textbf{DOE-2.1E}\\
+			DOE-2 predicts hourly energy consumption and energy cost for a building based on the given weather information, building geometry, HVAC description, and utility cost. DOE-2 has one subprogram to translate input (BDL Processor), and four simulation subprograms namely \textit{Loads, Systems, Plant, and ECON (Economics)}.\\
+			\textit{Loads, Systems and Plant} are executed in sequence, with the output of the predecessor become the input of the next program in sequence. The output then becomes the input to \textit{Economics} \cite{crawley2008contrasting}. Each of the simulation subprograms can also generate printable reports of the results of its calculations.\\
+			DOE-2 has been used extensively for more than 35 years for both building design studeis, retrofit analysis, and for developing and testing building energy standards \cite{crawley2008contrasting}.\\
+		
+
+		\textbf{EnergyPlus}\\
+			\textit{EnergyPlus} is a modular and structured code based calculation engine. As mentioned above, it is based on the most popular features and functions of BLAST and DOE-2 and it is a more advanced tool compared to the previous two simulation engines. It is a simulation engine with input and output as text files. Loads are firstly calculated at a user-defined time step, then passed on to the building systems simulation module at the same time step \cite{crawley2008contrasting}. The EnergyPlus building system simulation module calculates heating and cooling system and plant and electrical system response. The integrated simulation also capable to evaluate realistic system controls, moisture adsorption and deorption in building elements, radiant heating and cooling system and interzone air flow \cite{crawley2008contrasting}.\\
+
+
+
 			\section{SIA Documentations}
 		Most of the building occupancy and activity assumption are from the standard values published by the Swiss society of engineers and architects (hereinafter: SIA Standard). The SIA standards range from energy consumption calculation formulars to the supporting informations about a perticular building type or a room type. It also include a reference standard weather data set for most of the cities in Switzerland. Here are the main SIA standards that are used or taken into account in this thesis.\\
 
 		\textbf{SIA 380/1: Thermal energy in buildings}\\
-			This SIA standard is published in 2009 replacing its predecessor SIA 380/1 (2007). It is often used with other standardized calculation parameters when assessing the energy efficiency of existing buildings \cite{SIAPreviousreport}. It also serves as a forecasting tool to evaluate the refurbishment plans. However, the building usually consume less energy than what the calculation suggest, and this issue become more severe as the building envelope gets worse as hown in figure \ref{fig:SIA380PG} below. When using SIA 380/1 to calculate the entitlements for governmental energy certificates, standardized data is used, when using SIA 380/1 for energy consulting, design and optimizations, the best known data is used \cite{SIAPreviousreport}.\\
-
-
+			This SIA standard is published in 2009 replacing its predecessor SIA 380/1 (2007). It is often used with other standardized calculation parameters when assessing the energy efficiency of existing buildings \cite{SIAPreviousreport}. It also serves as a forecasting tool to evaluate the refurbishment plans. However, the building usually consume less energy than what the calculation suggest, and this issue become more severe as the building envelope gets worse as shown in figure \ref{fig:SIA380PG}. When using SIA 380/1 to calculate the entitlements for governmental energy certificates, standardized data is used, when using SIA 380/1 for energy consulting, design and optimizations, the best known data is used \cite{SIAPreviousreport}.\\
 
 
 		\textbf{SIA 2028: SIA Weather Data}\\
