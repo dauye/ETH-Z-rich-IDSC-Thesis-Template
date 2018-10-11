@@ -106,7 +106,7 @@
 					\hline
 					\multicolumn{4}{c}{Ground Floor} \\ 
 					\hline
-					Orientation & Location & Window Code & \# of window \\ \hline
+					Orientation & Location & Code & Number of window \\ \hline
 					\multirow{4}{*}{SW} & Terrasse & 2a & 2 \\ 
 					 & WC & 3a & 1 \\ 
 					 & Staircase & 1a & 1 \\ 
@@ -167,7 +167,7 @@
 				\caption{Office building window specification}
 			    \begin{tabular}{ccccc}
 			    	\toprule
-				    \multicolumn{1}{p{3em}}{Code} & \multicolumn{1}{p{3.785em}}{U-Value W/m2K} & \multicolumn{1}{p{4.215em}}{\#} & \multicolumn{1}{p{4.215em}}{unit area} & \multicolumn{1}{p{4em}}{Total Area m$^2$} \\
+				    \multicolumn{1}{p{3em}}{Code} & \multicolumn{1}{p{3.785em}}{U-Value W/m$^2$K} & \multicolumn{1}{c}{Number of window} & \multicolumn{1}{p{4.215em}}{Unit area \newline{} m$^2$} & \multicolumn{1}{p{5em}}{Total area \newline{} m$^2$} \\
 				    \midrule
 				    \multicolumn{1}{c}{FE1} & 2.001 & 33   & 6    & 198 \\
 				    \midrule
@@ -195,7 +195,7 @@
 				\caption{Residential building window specification}
 				    \begin{tabular}{ccccc}
 				    \toprule
-				    \multicolumn{1}{p{4.215em}}{Code} & \multicolumn{1}{p{5.145em}}{U-Value W/m2K} & \multicolumn{1}{p{5.145em}}{number of windows} & \multicolumn{1}{p{4.43em}}{unit area} & \multicolumn{1}{p{5.145em}}{Total Area} \\
+				    \multicolumn{1}{p{4.215em}}{Code} & \multicolumn{1}{p{5.145em}}{U-Value W/m$^2$K} & \multicolumn{1}{c}{number of window} & \multicolumn{1}{c}{unit area \newline{} m$^2$} & \multicolumn{1}{4em}{Total Area \newline{} m$^2$} \\
 				    \midrule
 				    FE-EG-1a & 2.379 & 1    & 6.9  & 9.9 \\
 				    \midrule
@@ -220,7 +220,7 @@
 		\subsection{Building Envelope Material}
 			After the building geometry is construct, the building wall and window elements are then assigned a set of thermal properties based on measurememt.
 			Both buildings are uninsulated reinforced concrete structure buildings with thin outer and inner plaster layers. The detailed building wall material of both buildings as well as their thermodynamic properties are measured from the actural building and are shown in Table \ref{tab:SumatraWallMaterial} and Table \ref{tab:HonggerWallMat}. The window properties and geometries of both buildings can be found in \ref{tab:SumatraWindow} and \ref{tab:HonggWindow}. Also note that the office building has PV panels on the roof but they are not included in either building geometry or building envelop. After the building material are assigned to all part of the buildings, static calculation and dynamic calculation can be performed.\\
-
+            Figure \ref{fig:SumatraDB} and \ref{fig:HonggDB} shows a completed office and residential building DesignBuilder model with geometry and material information.\\
 			
 			\newpage
 			\begin{table}[h!]
@@ -228,7 +228,7 @@
 			\caption{Wall material list of office building}
 			    \begin{tabular}{rrrrrrr}
 			    \toprule
-			         & \multicolumn{1}{p{4em}}{Thickness \newline{}m} & \multicolumn{1}{p{3.145em}}{Density \newline{}kg/m3} & \multicolumn{1}{p{3.285em}}{Lambda \newline{}W/MK} & \multicolumn{1}{p{3.57em}}{Heat Capacity\newline{} KJ/Kg.K} & \multicolumn{1}{p{2.93em}}{R Value \newline{}m2K/W} & \multicolumn{1}{p{3.145em}}{U Value \newline{}W/m2K} \\
+			         & \multicolumn{1}{p{4em}}{Thickness \newline{}m} & \multicolumn{1}{p{3.145em}}{Density \newline{}kg/m$^3$} & \multicolumn{1}{p{3.285em}}{Lambda \newline{}W/MK} & \multicolumn{1}{p{3.57em}}{Heat Capacity\newline{} KJ/Kg.K} & \multicolumn{1}{p{2.93em}}{R Value \newline{}m$^2$K/W} & \multicolumn{1}{p{3.145em}}{U Value \newline{}W/m$^2$K} \\
 			    \midrule
 			    \multicolumn{7}{p{26.86em}}{EG East Wall} \\
 			    \multicolumn{1}{l}{Outside convection coefficient} &      &      &      &      &      &  \\
@@ -281,7 +281,7 @@
 			\caption{Residential building wall material}
 			    \begin{tabular}{rrrrrrr}
 			    \toprule
-			         & \multicolumn{1}{p{3.93em}}{Thickness m} & \multicolumn{1}{p{3.07em}}{Density kg/m3} & \multicolumn{1}{p{3.145em}}{Lambda W/MK} & \multicolumn{1}{p{3.57em}}{Heat Capacity KJ/Kg.K} & \multicolumn{1}{p{3.355em}}{R Value m2K/W} & \multicolumn{1}{p{3.355em}}{U Value W/m2K} \\
+			         & \multicolumn{1}{p{3.93em}}{Thickness m} & \multicolumn{1}{p{3.07em}}{Density kg/m$^3$} & \multicolumn{1}{p{3.145em}}{Lambda W/MK} & \multicolumn{1}{p{3.57em}}{Heat Capacity KJ/Kg.K} & \multicolumn{1}{p{3.355em}}{R Value m$^2$K/W} & \multicolumn{1}{p{3.355em}}{U Value W/m2K} \\
 			    \midrule
 			    \multicolumn{7}{c}{External Wall} \\
 			    \midrule
@@ -316,7 +316,7 @@
 			  \label{tab:HonggerWallMat}%
 			\end{table}%
 
-		Figure \ref{fig:SumatraDB} and \ref{fig:HonggDB} below shows a completed office and residential building DesignBuilder model with geometry and material information.\\
+
 
 			%\newpage
 			\begin{figure}[H]
